@@ -11,5 +11,5 @@ public interface PlayerDataRepository extends MongoRepository<PlayerData, String
     List<PlayerData> findPlayerDatas();
     PlayerData findPlayerDataById(String id);
     PlayerData findPlayerDataByPlayerDataCode(String playerDataCode);
-    List<PlayerData> findPlayerDatasByTypeNameContaining(String typeName);
+    List<PlayerData> findPlayerDataByTypeNameContaining(String typeName);
 }

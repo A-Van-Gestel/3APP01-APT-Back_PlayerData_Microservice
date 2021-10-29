@@ -21,12 +21,12 @@ public class PlayerDataController {
         return playerDataRepository.findPlayerDatas();
     }
 
-    @RequestMapping(value="/playerData/{id}",
-            method= RequestMethod.GET,
-            produces = {MediaType.APPLICATION_JSON_VALUE})
-    public PlayerData getPlayerDataById(@PathVariable String id){
-        return playerDataRepository.findPlayerDataById(id);
-    }
+//    @RequestMapping(value="/playerData/{id}",
+//            method= RequestMethod.GET,
+//            produces = {MediaType.APPLICATION_JSON_VALUE})
+//    public PlayerData getPlayerDataById(@PathVariable String id){
+//        return playerDataRepository.findPlayerDataById(id);
+//    }
 
     @RequestMapping(value="/playerData/{playerDataCode}",
             method= RequestMethod.GET,
@@ -37,7 +37,7 @@ public class PlayerDataController {
 
     @GetMapping("/playerDatas/type/{typeName}")
     public List<PlayerData> getPlayerDatasByTypeName(@PathVariable String typeName){
-        return playerDataRepository.findPlayerDatasByTypeNameContaining(typeName);
+        return playerDataRepository.findPlayerDataByTypeNameContaining(typeName);
     }
 
     @PostMapping("/playerData")
