@@ -16,14 +16,13 @@ public class PlayerData {
     private int happiness;
     private LocalDateTime lastFed;
     private LocalDateTime lastPetted;
-    private LocalDateTime timeInHealthZone;
     private int age;
 
     public PlayerData(String playerDataCode) {
         this.playerDataCode = playerDataCode;
     }
 
-    public PlayerData(String playerDataCode, String typeName, String name, int health, int happiness, LocalDateTime lastFed, LocalDateTime lastPetted, LocalDateTime timeInHealthZone, int age) {
+    public PlayerData(String playerDataCode, String typeName, String name, int health, int happiness, LocalDateTime lastFed, LocalDateTime lastPetted, int age) {
         this.playerDataCode = playerDataCode;
         this.typeName = typeName;
         this.name = name;
@@ -31,7 +30,6 @@ public class PlayerData {
         this.happiness = happiness;
         this.lastFed = lastFed;
         this.lastPetted = lastPetted;
-        this.timeInHealthZone = timeInHealthZone;
         this.age = age;
     }
 
@@ -89,14 +87,6 @@ public class PlayerData {
 
     public void setLastPetted(LocalDateTime lastPetted) {
         this.lastPetted = lastPetted;
-    }
-
-    public LocalDateTime getTimeInHealthZone() {
-        return timeInHealthZone;
-    }
-
-    public void setTimeInHealthZone(LocalDateTime timeInHealthZone) {
-        this.timeInHealthZone = timeInHealthZone;
     }
 
     public int getAge() {
