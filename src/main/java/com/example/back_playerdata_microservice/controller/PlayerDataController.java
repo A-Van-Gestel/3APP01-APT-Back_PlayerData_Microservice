@@ -21,13 +21,6 @@ public class PlayerDataController {
         return playerDataRepository.findAll();
     }
 
-//    @RequestMapping(value="/playerData/{id}",
-//            method= RequestMethod.GET,
-//            produces = {MediaType.APPLICATION_JSON_VALUE})
-//    public PlayerData getPlayerDataById(@PathVariable String id){
-//        return playerDataRepository.findPlayerDataById(id);
-//    }
-
     @RequestMapping(value="/playerData/{playerDataCode}",
             method= RequestMethod.GET,
             produces = {MediaType.APPLICATION_JSON_VALUE})
