@@ -26,7 +26,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class PlayerDataIntegrationTests {
+class PlayerDataIntegrationTests {
 
     @Autowired
     private MockMvc mockMvc;
@@ -60,7 +60,7 @@ public class PlayerDataIntegrationTests {
             .build();
 
     @Test
-    public void givenPlayerData_whenGetAllPlayerDatas_thenReturnJsonPlayerDatas() throws Exception {
+    void givenPlayerData_whenGetAllPlayerDatas_thenReturnJsonPlayerDatas() throws Exception {
 
         mockMvc.perform(get("/playerDatas"))
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))

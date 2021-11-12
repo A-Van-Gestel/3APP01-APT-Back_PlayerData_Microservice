@@ -27,7 +27,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class PlayerDataUnitTests {
+class PlayerDataUnitTests {
 
     @Autowired
     private MockMvc mockMvc;
@@ -49,7 +49,7 @@ public class PlayerDataUnitTests {
 
     // Gives back a list of all PlayerDatas
     @Test
-    public void givenPlayerData_whenGetAllPlayerDatas_thenReturnJsonPlayerDatas() throws Exception {
+    void givenPlayerData_whenGetAllPlayerDatas_thenReturnJsonPlayerDatas() throws Exception {
         given(playerDataRepository.findAll()).willReturn(playerDataList);
 
         mockMvc.perform(get("/playerDatas"))
@@ -80,7 +80,7 @@ public class PlayerDataUnitTests {
 
     // Gives 1 playerData back, searched on playerDataCode (playerData1)
     @Test
-    public void givenPlayerData_whenGetPlayerDataById_thenReturnJsonPlayerData1() throws Exception {
+    void givenPlayerData_whenGetPlayerDataById_thenReturnJsonPlayerData1() throws Exception {
 
         given(playerDataRepository.findPlayerDataByPlayerDataCode("12345abcde")).willReturn(playerData1);
         mockMvc.perform(get("/playerData/{playerDataCode}","12345abcde")) // command
@@ -99,7 +99,7 @@ public class PlayerDataUnitTests {
 
     // Gives 1 playerData back, searched on playerDataCode (playerData2)
     @Test
-    public void givenPlayerData_whenGetPlayerDataById_thenReturnJsonPlayerData2() throws Exception {
+    void givenPlayerData_whenGetPlayerDataById_thenReturnJsonPlayerData2() throws Exception {
 
         given(playerDataRepository.findPlayerDataByPlayerDataCode("abcde12345")).willReturn(playerData2);
         mockMvc.perform(get("/playerData/{playerDataCode}","abcde12345")) // command
@@ -119,7 +119,7 @@ public class PlayerDataUnitTests {
 
     // Gives all playerData that has a typeName containing "Sl" back, searched on typeName
     @Test
-    public void givenPlayerData_whenGetPlayerDataByTypeName_theReturnJsonPlayerDatas() throws Exception {
+    void givenPlayerData_whenGetPlayerDataByTypeName_theReturnJsonPlayerDatas() throws Exception {
         given(playerDataRepository.findPlayerDataByTypeNameContaining("Sl")).willReturn(playerDataList);
 
         mockMvc.perform(get("/playerDatas/type/{typeName}","Sl")) // Command
@@ -149,7 +149,7 @@ public class PlayerDataUnitTests {
 
     // Gives all playerData that has a typeName containing "Slijmie" back, searched on typeName
     @Test
-    public void givenPlayerData_whenGetPlayerDataByTypeName_theReturnJsonPlayerData1() throws Exception {
+    void givenPlayerData_whenGetPlayerDataByTypeName_theReturnJsonPlayerData1() throws Exception {
         given(playerDataRepository.findPlayerDataByTypeNameContaining("Slijmie")).willReturn(List.of(playerData1));
 
         mockMvc.perform(get("/playerDatas/type/{typeName}","Slijmie")) // Command
@@ -170,7 +170,7 @@ public class PlayerDataUnitTests {
 
     // Gives all playerData that has a typeName containing "Slakkie" back, searched on typeName
     @Test
-    public void givenPlayerData_whenGetPlayerDataByTypeName_theReturnJsonPlayerData2() throws Exception {
+    void givenPlayerData_whenGetPlayerDataByTypeName_theReturnJsonPlayerData2() throws Exception {
         given(playerDataRepository.findPlayerDataByTypeNameContaining("Slakkie")).willReturn(List.of(playerData2));
 
         mockMvc.perform(get("/playerDatas/type/{typeName}","Slakkie")) // Command
@@ -192,7 +192,7 @@ public class PlayerDataUnitTests {
 
     // When adding a new PlayerData, also give it back
     @Test
-    public void whenPostPlayerData_thenReturnJsonPlayerData() throws Exception {
+    void whenPostPlayerData_thenReturnJsonPlayerData() throws Exception {
         PlayerData playerDataPost = new PlayerData("Fluffy12345","Een pluisbol","Fluffy Pluisbol",160,80, LocalDateTime.of(2021, 5, 12, 15, 35, 59),LocalDateTime.of(2021, 5, 12, 15, 35, 41),1);
 
         mockMvc.perform(post("/playerData") // Command
@@ -214,7 +214,7 @@ public class PlayerDataUnitTests {
 
     // When updating a PlayerData, get back the updated PlayerData
     @Test
-    public void givenPlayerData_whenPutPlayerData_thenReturnJsonPlayerData() throws Exception {
+    void givenPlayerData_whenPutPlayerData_thenReturnJsonPlayerData() throws Exception {
         PlayerData playerDataPut = new PlayerData("12345abcde","Slijmie","Rimu Tempest the second",5000,100, LocalDateTime.of(2017, 2, 13, 15, 56, 42),LocalDateTime.of(2017, 2, 13, 15, 56, 5),9999);
 
         given(playerDataRepository.findPlayerDataByPlayerDataCode("12345abcde")).willReturn(playerData1);
@@ -239,7 +239,7 @@ public class PlayerDataUnitTests {
 
     // When deleting a PlayerData, give back status OK
     @Test
-    public void givenPlayerData_whenDeletePlayerData_thenStatusOk() throws Exception {
+    void givenPlayerData_whenDeletePlayerData_thenStatusOk() throws Exception {
         PlayerData playerDataDelete = new PlayerData("fifi12345","Een Hond","FiFi the sacrifice",1,0, LocalDateTime.of(2017, 2, 13, 15, 56, 42),LocalDateTime.of(2017, 2, 13, 15, 56, 5),10);
 
         given(playerDataRepository.findPlayerDataByPlayerDataCode("fifi12345")).willReturn(playerDataDelete);
@@ -252,7 +252,7 @@ public class PlayerDataUnitTests {
 
 
     @Test
-    public void givenPlayerData_whenDeletePlayerData_thenStatusNotfound() throws Exception {
+    void givenPlayerData_whenDeletePlayerData_thenStatusNotfound() throws Exception {
 
         given(playerDataRepository.findPlayerDataByPlayerDataCode("fifi12345")).willReturn(null);
 

@@ -21,8 +21,7 @@ public class PlayerDataController {
         return playerDataRepository.findAll();
     }
 
-    @RequestMapping(value="/playerData/{playerDataCode}",
-            method= RequestMethod.GET,
+    @GetMapping(value="/playerData/{playerDataCode}",
             produces = {MediaType.APPLICATION_JSON_VALUE})
     public PlayerData getPlayerDataByPlayerDataCode(@PathVariable String playerDataCode){
         return playerDataRepository.findPlayerDataByPlayerDataCode(playerDataCode);
@@ -58,7 +57,7 @@ public class PlayerDataController {
     }
 
     @DeleteMapping("/types/name/{playerDataCode}")
-    public ResponseEntity deletePlayerDataCode(@PathVariable String playerDataCode) {
+    public ResponseEntity<?> deletePlayerDataCode(@PathVariable String playerDataCode) {
         PlayerData playerData = playerDataRepository.findPlayerDataByPlayerDataCode(playerDataCode);
         if (playerData!=null) {
             playerDataRepository.delete(playerData);
