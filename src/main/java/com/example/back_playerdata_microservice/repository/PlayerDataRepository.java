@@ -8,8 +8,8 @@ import java.util.List;
 
 @Repository
 public interface PlayerDataRepository extends MongoRepository<PlayerData, String> {
-    List<PlayerData> findPlayerDatas();
-    PlayerData findPlayerDataById(String id);
+    List<PlayerData> findAll();
+//    PlayerData findPlayerDataById(String id);
     PlayerData findPlayerDataByPlayerDataCode(String playerDataCode);
     List<PlayerData> findPlayerDataByTypeNameContaining(String typeName);
 }

@@ -50,7 +50,7 @@ public class PlayerDataUnitTests {
     // Gives back a list of all PlayerDatas
     @Test
     public void givenPlayerData_whenGetAllPlayerDatas_thenReturnJsonPlayerDatas() throws Exception {
-        given(playerDataRepository.findPlayerDatas()).willReturn(playerDataList);
+        given(playerDataRepository.findAll()).willReturn(playerDataList);
 
         mockMvc.perform(get("/playerDatas"))
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))

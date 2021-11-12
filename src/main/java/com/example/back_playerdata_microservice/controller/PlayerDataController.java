@@ -18,7 +18,7 @@ public class PlayerDataController {
     
     @GetMapping("/playerDatas")
     public List<PlayerData> getAll() {
-        return playerDataRepository.findPlayerDatas();
+        return playerDataRepository.findAll();
     }
 
 //    @RequestMapping(value="/playerData/{id}",
