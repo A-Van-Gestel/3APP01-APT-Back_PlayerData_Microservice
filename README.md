@@ -1,1 +1,7 @@
 # 3APP01-APT-Back_PlayerData_Microservice
+
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=A-Van-Gestel_3APP01-APT-Back_PlayerData_Microservice&metric=bugs)](https://sonarcloud.io/summary/new_code?id=A-Van-Gestel_3APP01-APT-Back_PlayerData_Microservice)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=A-Van-Gestel_3APP01-APT-Back_PlayerData_Microservice&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=A-Van-Gestel_3APP01-APT-Back_PlayerData_Microservice)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=A-Van-Gestel_3APP01-APT-Back_PlayerData_Microservice&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=A-Van-Gestel_3APP01-APT-Back_PlayerData_Microservice)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=A-Van-Gestel_3APP01-APT-Back_PlayerData_Microservice&metric=coverage)](https://sonarcloud.io/summary/new_code?id=A-Van-Gestel_3APP01-APT-Back_PlayerData_Microservice)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=A-Van-Gestel_3APP01-APT-Back_PlayerData_Microservice&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=A-Van-Gestel_3APP01-APT-Back_PlayerData_Microservice)
