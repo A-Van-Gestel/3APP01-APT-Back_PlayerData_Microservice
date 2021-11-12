@@ -1,9 +1,9 @@
 name: Build, test and deliver player data service container
 
-on: workflow_dispatch
+on: push
 
 jobs:
-  playerDataService:
+  build:
     runs-on: ubuntu-latest
     name: Java 11 build, test, deliver playerdata-service container
     steps:
