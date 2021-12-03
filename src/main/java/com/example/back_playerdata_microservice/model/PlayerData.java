@@ -21,10 +21,6 @@ public class PlayerData {
     public PlayerData(){
     }
 
-    public PlayerData(String playerDataCode) {
-        this.playerDataCode = playerDataCode;
-    }
-
     public PlayerData(String playerDataCode, String typeName, String name, int health, int happiness, LocalDateTime lastFed, LocalDateTime lastPetted, int age) {
         this.playerDataCode = playerDataCode;
         this.typeName = typeName;

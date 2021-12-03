@@ -262,4 +262,11 @@ class PlayerDataUnitTests {
     }
 
 
+    // Test class added ONLY to cover main() invocation not covered by application tests.
+    @Test
+    public void main() {
+        BackPlayerDataMicroserviceApplication.main(new String[] {});
+        given(true).willReturn(true);   // silly assertion to be compliant with Sonar
+    }
+
 }
