@@ -36,7 +36,7 @@ public class PlayerDataController {
     @PostMapping("/playerData")
     public PlayerData addPlayerData(@RequestBody PlayerDataDTO playerData) {
         PlayerData tempPlayerData = new PlayerData();
-        PlayerData persistentPlayerData = _getPlayerDataFromPlayerDataDTO(tempPlayerData, playerData);
+        PlayerData persistentPlayerData = getPlayerDataFromPlayerDataDTO(tempPlayerData, playerData);
         playerDataRepository.save(persistentPlayerData);
         return persistentPlayerData;
     }
@@ -44,7 +44,7 @@ public class PlayerDataController {
     @PutMapping("/playerData")
     public PlayerData modifyPlayerData(@RequestBody PlayerDataDTO updatedPlayerData) {
         PlayerData tempPlayerData = playerDataRepository.findPlayerDataByPlayerDataCode(updatedPlayerData.getPlayerDataCode());
-        PlayerData retrievedPlayerData = _getPlayerDataFromPlayerDataDTO(tempPlayerData, updatedPlayerData);
+        PlayerData retrievedPlayerData = getPlayerDataFromPlayerDataDTO(tempPlayerData, updatedPlayerData);
 
         playerDataRepository.save(retrievedPlayerData);
 
@@ -63,7 +63,7 @@ public class PlayerDataController {
     }
 
     // Make a real PlayerData from the PlayerDataDTO
-    private PlayerData _getPlayerDataFromPlayerDataDTO(PlayerData playerData, PlayerDataDTO playerDataDTO) {
+    private PlayerData getPlayerDataFromPlayerDataDTO(PlayerData playerData, PlayerDataDTO playerDataDTO) {
         playerData.setPlayerDataCode(playerDataDTO.getPlayerDataCode());
         playerData.setTypeName(playerDataDTO.getTypeName());
         playerData.setName(playerDataDTO.getName());
