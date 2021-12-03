@@ -301,7 +301,7 @@ class PlayerDataIntegrationTests {
                 .andExpect(status().isOk());
 
         mockMvc.perform(delete("/playerData/{playerDataCode}","zzzzz99999")
-                        .contentType(MediaType.APPLICATION_JSON))
+                .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
     }
 }

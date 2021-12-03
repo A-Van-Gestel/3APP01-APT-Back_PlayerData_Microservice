@@ -57,7 +57,7 @@ public class PlayerDataController {
     }
 
     @DeleteMapping("/playerData/{playerDataCode}")
-    public ResponseEntity<?> deletePlayerDataCode(@PathVariable String playerDataCode) {
+    public ResponseEntity<Object> deletePlayerDataCode(@PathVariable String playerDataCode) {
         PlayerData playerData = playerDataRepository.findPlayerDataByPlayerDataCode(playerDataCode);
         if (playerData!=null) {
             playerDataRepository.delete(playerData);
@@ -66,5 +66,4 @@ public class PlayerDataController {
             return ResponseEntity.notFound().build();
         }
     }
-    
 }
