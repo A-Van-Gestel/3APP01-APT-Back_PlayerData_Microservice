@@ -300,8 +300,7 @@ class PlayerDataIntegrationTests {
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
 
-        mockMvc.perform(get("/types/name/{playerDataCode}","zzzzz99999")
-                .contentType("null"))
+        mockMvc.perform(get("/types/name/{playerDataCode}","zzzzz99999"))
                 .andExpect(status().isOk());
     }
 }
