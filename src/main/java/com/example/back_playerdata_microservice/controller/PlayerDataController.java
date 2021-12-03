@@ -1,6 +1,7 @@
 package com.example.back_playerdata_microservice.controller;
 
 import com.example.back_playerdata_microservice.model.PlayerData;
+import com.example.back_playerdata_microservice.model.PlayerDataDTO;
 import com.example.back_playerdata_microservice.repository.PlayerDataRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -33,23 +34,17 @@ public class PlayerDataController {
     }
 
     @PostMapping("/playerData")
-    public PlayerData addPlayerData(@RequestBody PlayerData playerData) {
-        playerDataRepository.save(playerData);
-        return playerData;
+    public PlayerData addPlayerData(@RequestBody PlayerDataDTO playerData) {
+        PlayerData tempPlayerData = new PlayerData();
+        PlayerData persistentPlayerData = _getPlayerDataFromPlayerDataDTO(tempPlayerData, playerData);
+        playerDataRepository.save(persistentPlayerData);
+        return persistentPlayerData;
     }
 
     @PutMapping("/playerData")
-    public PlayerData modifyPlayerData(@RequestBody PlayerData updatedPlayerData) {
-        PlayerData retrievedPlayerData = playerDataRepository.findPlayerDataByPlayerDataCode(updatedPlayerData.getPlayerDataCode());
-
-        retrievedPlayerData.setPlayerDataCode(updatedPlayerData.getPlayerDataCode());
-        retrievedPlayerData.setTypeName(updatedPlayerData.getTypeName());
-        retrievedPlayerData.setName(updatedPlayerData.getName());
-        retrievedPlayerData.setHealth(updatedPlayerData.getHealth());
-        retrievedPlayerData.setHappiness(updatedPlayerData.getHappiness());
-        retrievedPlayerData.setLastFed(updatedPlayerData.getLastFed());
-        retrievedPlayerData.setLastPetted(updatedPlayerData.getLastPetted());
-        retrievedPlayerData.setAge(updatedPlayerData.getAge());
+    public PlayerData modifyPlayerData(@RequestBody PlayerDataDTO updatedPlayerData) {
+        PlayerData tempPlayerData = playerDataRepository.findPlayerDataByPlayerDataCode(updatedPlayerData.getPlayerDataCode());
+        PlayerData retrievedPlayerData = _getPlayerDataFromPlayerDataDTO(tempPlayerData, updatedPlayerData);
 
         playerDataRepository.save(retrievedPlayerData);
 
@@ -65,5 +60,19 @@ public class PlayerDataController {
         }else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    // Make a real PlayerData from the PlayerDataDTO
+    private PlayerData _getPlayerDataFromPlayerDataDTO(PlayerData playerData, PlayerDataDTO playerDataDTO) {
+        playerData.setPlayerDataCode(playerDataDTO.getPlayerDataCode());
+        playerData.setTypeName(playerDataDTO.getTypeName());
+        playerData.setName(playerDataDTO.getName());
+        playerData.setHealth(playerDataDTO.getHealth());
+        playerData.setHappiness(playerDataDTO.getHappiness());
+        playerData.setLastFed(playerDataDTO.getLastFed());
+        playerData.setLastPetted(playerDataDTO.getLastPetted());
+        playerData.setAge(playerDataDTO.getAge());
+
+        return playerData;
     }
 }
