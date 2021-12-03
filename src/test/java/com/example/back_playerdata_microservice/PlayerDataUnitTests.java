@@ -262,6 +262,15 @@ class PlayerDataUnitTests {
                 .andExpect(status().isNotFound());
     }
 
+    @Test
+    void givenPlayerData_whenSetId_thenPlayerDataHasSetId() throws Exception {
+        PlayerData playerData = new PlayerData("12345abcde","Slijmie","Rimu Tempest the second",5000,100, LocalDateTime.of(2017, 2, 13, 15, 56, 42),LocalDateTime.of(2017, 2, 13, 15, 56, 5),9999);
+
+        playerData.setId("50");
+        Assertions.assertEquals("50", playerData.getId());
+    }
+
+
 
     // Test class added ONLY to cover main() invocation not covered by application tests.
     @Test
