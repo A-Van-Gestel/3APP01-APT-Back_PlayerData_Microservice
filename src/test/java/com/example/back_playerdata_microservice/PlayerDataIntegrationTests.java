@@ -301,6 +301,6 @@ class PlayerDataIntegrationTests {
                 .andExpect(status().isOk());
 
         mockMvc.perform(get("/types/name/{playerDataCode}","zzzzz99999"))
-                .andExpect(status().isOk());
+                .andExpect(status().isNotFound());
     }
 }
