@@ -266,7 +266,6 @@ class PlayerDataUnitTests {
     @Test
     public void main() {
         BackPlayerDataMicroserviceApplication.main(new String[] {});
-        given(true).willReturn(true);   // silly assertion to be compliant with Sonar
     }
 
 }
