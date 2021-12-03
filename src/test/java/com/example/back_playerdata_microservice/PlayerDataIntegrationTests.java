@@ -288,7 +288,7 @@ class PlayerDataIntegrationTests {
     // When deleting a PlayerData, give back status OK
     @Test
     void givenPlayerData_whenDeletePlayerData_thenStatusOk() throws Exception {
-        mockMvc.perform(delete("/types/name/{playerDataCode}","zzzzz99999")
+        mockMvc.perform(delete("/playerData/{playerDataCode}","zzzzz99999")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
@@ -296,11 +296,11 @@ class PlayerDataIntegrationTests {
     // When deleting a PlayerData and trying to get this PlayerData, give back status Not Found
     @Test
     void givenPlayerData_whenDeletePlayerData_thenStatusNotfound() throws Exception {
-        mockMvc.perform(delete("/types/name/{playerDataCode}","zzzzz99999")
+        mockMvc.perform(delete("/playerData/{playerDataCode}","zzzzz99999")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
 
-        mockMvc.perform(get("/types/name/{playerDataCode}","zzzzz99999"))
+        mockMvc.perform(get("/playerData/{playerDataCode}","zzzzz99999"))
                 .andExpect(status().isNotFound());
     }
 }

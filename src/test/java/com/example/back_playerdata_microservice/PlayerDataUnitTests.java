@@ -244,7 +244,7 @@ class PlayerDataUnitTests {
 
         given(playerDataRepository.findPlayerDataByPlayerDataCode("fifi12345")).willReturn(playerDataDelete);
 
-        mockMvc.perform(delete("/types/name/{playerDataCode}","fifi12345")
+        mockMvc.perform(delete("/playerData/{playerDataCode}","fifi12345")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
@@ -256,7 +256,7 @@ class PlayerDataUnitTests {
 
         given(playerDataRepository.findPlayerDataByPlayerDataCode("fifi12345")).willReturn(null);
 
-        mockMvc.perform(delete("/types/name/{playerDataCode}","fifi12345")
+        mockMvc.perform(delete("/playerData/{playerDataCode}","fifi12345")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
     }
