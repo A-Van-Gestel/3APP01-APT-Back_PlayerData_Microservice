@@ -298,6 +298,10 @@ class PlayerDataIntegrationTests {
     void givenPlayerData_whenDeletePlayerData_thenStatusNotfound() throws Exception {
         mockMvc.perform(delete("/types/name/{playerDataCode}","zzzzz99999")
                 .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+
+        mockMvc.perform(get("/playerData/{playerDataCode}","zzzzz99999")) // command
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
     }
 }
