@@ -42,10 +42,10 @@ class PlayerDataUnitTests {
     @MockBean
     private PlayerDataRepository playerDataRepository;
 
-    private PlayerData playerData1 = new PlayerData("12345abcde","Slijmie","Rimu Tempest",80,50, LocalDateTime.of(2017, 2, 13, 15, 56, 42),LocalDateTime.of(2017, 2, 13, 15, 56, 5),30);
-    private PlayerData playerData2 = new PlayerData("abcde12345","Slakkie","Slakkie Slak",70,60,LocalDateTime.of(2019, 3, 4, 15, 56, 12),LocalDateTime.of(2019, 3, 5, 15, 56, 35),40);
+    private final PlayerData playerData1 = new PlayerData("12345abcde","Slijmie","Rimu Tempest",80,50, LocalDateTime.of(2017, 2, 13, 15, 56, 42),LocalDateTime.of(2017, 2, 13, 15, 56, 5),30);
+    private final PlayerData playerData2 = new PlayerData("abcde12345","Slakkie","Slakkie Slak",70,60,LocalDateTime.of(2019, 3, 4, 15, 56, 12),LocalDateTime.of(2019, 3, 5, 15, 56, 35),40);
 
-    List<PlayerData> playerDataList = Arrays.asList(playerData1, playerData2);;
+    List<PlayerData> playerDataList = Arrays.asList(playerData1, playerData2);
 
 
     // Gives back a list of all PlayerDatas
@@ -263,7 +263,7 @@ class PlayerDataUnitTests {
     }
 
     @Test
-    void givenPlayerData_whenSetId_thenPlayerDataHasSetId() throws Exception {
+    void givenPlayerData_whenSetId_thenPlayerDataHasSetId() {
         PlayerData playerData = new PlayerData("12345abcde","Slijmie","Rimu Tempest the second",5000,100, LocalDateTime.of(2017, 2, 13, 15, 56, 42),LocalDateTime.of(2017, 2, 13, 15, 56, 5),9999);
 
         playerData.setId("50");
