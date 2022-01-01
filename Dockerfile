@@ -1,4 +1,4 @@
-FROM openjdk:11-jdk-alpine
+FROM eclipse-temurin:11-alpine
 EXPOSE 8052
 ARG JAR_FILE=target/*.jar
 ADD ${JAR_FILE} app.jar
