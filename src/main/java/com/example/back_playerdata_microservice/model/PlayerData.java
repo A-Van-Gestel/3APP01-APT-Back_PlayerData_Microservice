@@ -3,6 +3,7 @@ package com.example.back_playerdata_microservice.model;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
@@ -13,6 +14,7 @@ import java.time.LocalDateTime;
 public class PlayerData {
     @Id
     private String id;
+    @Indexed(unique=true)
     private String playerDataCode;
     private String typeName;
     private String name;
