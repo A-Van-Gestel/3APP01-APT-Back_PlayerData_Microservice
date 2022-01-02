@@ -276,7 +276,7 @@ class PlayerDataUnitTests {
     @Test
     void main() {
         BackPlayerDataMicroserviceApplication.main(new String[] {});
-        Assertions.assertTrue(true); // fake assertion so that Sonar Claud won't complain
+        Assertions.assertTrue(true); // fake assertion so that Sonar Cloud won't complain
     }
 
 }
